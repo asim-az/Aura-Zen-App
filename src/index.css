@@ -1,0 +1,174 @@
+:root {
+  --bg-color: #FAF9F6;       /* Soft warm alabaster */
+  --card-bg: #FFFFFF;        /* Pure white cards */
+  --text-main: #2C3531;      /* Deep slate gray for text */
+  --text-muted: #7A827A;     /* Soft sage/gray for minor text */
+  --accent: #8A9A86;         /* Calm Sage Green */
+  --accent-light: #E8EBE7;   /* Light Sage Tint */
+  --accent-hover: #73836F;   /* Darker Sage */
+  --border: #ECEAE4;         /* Soft natural border color */
+  
+  --font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --transition: all 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-family);
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  line-height: 1.6;
+}
+
+#root {
+  width: 100%;
+  max-width: 1000px;
+}
+
+/* Typography & Layout */
+header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+header h1 {
+  font-weight: 300;
+  font-size: 2.5rem;
+  letter-spacing: -0.05em;
+  color: var(--accent);
+}
+
+header p {
+  font-weight: 400;
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 280px;
+}
+
+.card-title {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  width: 100%;
+}
+
+/* UI Elements */
+button {
+  font-family: var(--font-family);
+  background: var(--accent-light);
+  color: var(--text-main);
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 500;
+}
+
+button:hover {
+  background: var(--accent);
+  color: white;
+}
+
+button.primary {
+  background: var(--accent);
+  color: white;
+}
+
+button.primary:hover {
+  background: var(--accent-hover);
+}
+
+/* Components Custom CSS */
+/* Breathing Circle Animation States */
+.breathing-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.breathing-circle-outer {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: var(--accent-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 4s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 1rem;
+}
+
+.breathing-circle-inner {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.8;
+  transition: transform 4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dynamic Classes Controlled by React State */
+.breathing-circle-outer.inhale {
+  transform: scale(1.35);
+}
+.breathing-circle-outer.exhale {
+  transform: scale(0.9);
+}
+.breathing-circle-outer.hold {
+  transform: scale(1.35);
+}
+
+/* Footer Styling */
+footer {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  margin-top: auto;
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 1rem 0.5rem;
+  }
+  .card {
+    min-height: 250px;
+  }
+}
