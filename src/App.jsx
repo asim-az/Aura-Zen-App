@@ -9,7 +9,7 @@ export default function App() {
     <div className="app-container">
       <header>
         <h1>Aura</h1>
-        <p>A minimalist space to breathe, focus, and write down your thoughts.</p>
+        <p>A minimalist Space to Breathe, Focus, and Write Down Your Thoughts.</p>
       </header>
 
       <main className="dashboard-grid">
